@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-size: theme("fontSize.base");
+  font-family: "Inter", sans-serif;
+  color: theme("colors.neutral.gray100");
+  font-weight: theme("fontWeight.regular");
+  line-height: theme("lineHeight.normal");
+}
+
+body {
+  background-color: theme("colors.neutral.gray600");
+  padding: theme("spacing.24") theme("spacing.16");
+}
