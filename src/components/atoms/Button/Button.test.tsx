@@ -1,3 +1,4 @@
+import { buttonMock } from "@/__mocks__/button";
 import "@testing-library/jest-dom";
 import { render } from "@testing-library/react";
 import { Button } from ".";
@@ -11,11 +12,10 @@ describe("Button component", () => {
   });
 
   test("onClick event should be triggered when clicked", () => {
-    const mockOnClick = jest.fn();
-    const { getByTestId } = render(<Button onClick={mockOnClick} />);
+    const { getByTestId } = render(<Button onClick={buttonMock.onClick} />);
     const button = getByTestId("button");
 
     button.click();
-    expect(mockOnClick).toHaveBeenCalled();
+    expect(buttonMock.onClick).toHaveBeenCalled();
   });
 });
