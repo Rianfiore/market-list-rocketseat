@@ -9,6 +9,7 @@
   color: theme("colors.neutral.gray100");
   font-weight: theme("fontWeight.regular");
   line-height: theme("lineHeight.normal");
+  transition: all 0.2s ease-in-out;
 }
 
 body {
