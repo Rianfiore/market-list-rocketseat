@@ -1,6 +1,6 @@
+import theme from "@/styles/theme";
 import { Plus } from "lucide-react";
 import { ButtonProps } from "./types";
-import theme from '../../../s'
 
 export function Button({ ...props }: ButtonProps) {
   return (
