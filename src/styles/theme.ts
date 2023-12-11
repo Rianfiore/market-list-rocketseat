@@ -27,7 +27,7 @@ export default {
       green: "#8CAD51",
       "green-dark": "#1C2015",
       blue: "#7B94CB",
-      "blue-dard": "#1A1D23",
+      "blue-dark": "#1A1D23",
     },
   },
   fontSize: {
