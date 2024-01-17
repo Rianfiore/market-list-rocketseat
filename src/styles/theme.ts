@@ -8,7 +8,7 @@ export default {
     neutral: {
       gray100: "#FBF9FE",
       gray200: "#AFABB6",
-      grey300: "#252529",
+      gray300: "#252529",
       gray400: "#17171A",
       gray500: "#111112",
       gray600: "#0C0C0D",
