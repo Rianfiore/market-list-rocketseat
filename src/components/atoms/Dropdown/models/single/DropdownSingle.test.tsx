@@ -1,9 +1,9 @@
-import { dropdownSingleMock } from "@/__mocks__/dropdownSingle";
+import { dropdownSingleMock } from "@/__mocks__/components/atoms";
 import "@testing-library/jest-dom";
 import { fireEvent, render } from "@testing-library/react";
 import { DropdownSingle } from ".";
 
-describe("Tag component", () => {
+describe("DropdownSingle component", () => {
   test("should render correctly", () => {
     const { getByTestId } = render(
       <DropdownSingle data={dropdownSingleMock.data} />
@@ -27,7 +27,7 @@ describe("Tag component", () => {
     expect(dropdownSingleMock.onClick).toHaveBeenCalled();
   });
 
-  test('should be able to call "onChange" prop in input', async () => {
+  test('should be able to call "onChange" prop in dropdown menu', async () => {
     const { getByTestId, findAllByTestId } = render(
       <DropdownSingle
         data={dropdownSingleMock.data}

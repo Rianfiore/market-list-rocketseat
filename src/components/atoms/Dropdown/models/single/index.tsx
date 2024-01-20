@@ -1,4 +1,4 @@
-import { useClickInside } from "@/hooks/useClickInside";
+import { useClickInOut } from "@/hooks/useClickInOut";
 import theme from "@/styles/theme";
 import { Check, ChevronDown } from "lucide-react";
 import React, { useRef, useState } from "react";
@@ -14,14 +14,16 @@ export function DropdownSingle({
 }: DropdownSingleProps) {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const [value, setValue] = useState<string>();
-  const dropdownRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLSpanElement>(null);
   const inputWidth = inputRef.current?.offsetWidth;
 
-  const { ref } = useClickInside({
-    initialRef: dropdownRef,
-    ignoreRefs: [inputRef],
+  const { ref: dropdownMenuRef } = useClickInOut({
+    ignoredRefs: [inputRef],
+    onClickInside: () => {
+      console.log("clicked inside");
+    },
     onClickOutside: () => {
+      console.log("clicked outside");
       setIsOpenMenu(false);
     },
   });
@@ -69,7 +71,7 @@ export function DropdownSingle({
       {isOpenMenu && (
         <div
           data-testid="dropdown-single-menu"
-          ref={ref as React.RefObject<HTMLDivElement>}
+          ref={dropdownMenuRef as React.RefObject<HTMLDivElement>}
           data-width={inputWidth}
           style={{
             width: `${inputWidth}px`,
