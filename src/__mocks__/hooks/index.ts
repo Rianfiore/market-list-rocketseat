@@ -1,1 +1,1 @@
-export { useClickOutsideMock } from "./useClickOutsideMock";
+export { useClickInOutMock } from "./useClickInOutMock";
