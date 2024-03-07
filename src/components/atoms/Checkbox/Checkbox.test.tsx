@@ -1,4 +1,4 @@
-import { checkboxMock } from "@/__mocks__/checkbox";
+import { checkboxMock } from "@/__mocks__/components/atoms";
 import "@testing-library/jest-dom";
 import { render } from "@testing-library/react";
 import { Checkbox } from ".";

@@ -1,4 +1,4 @@
-import { buttonMock } from "@/__mocks__/button";
+import { buttonMock } from "@/__mocks__/components/atoms";
 import "@testing-library/jest-dom";
 import { render } from "@testing-library/react";
 import { Button } from ".";

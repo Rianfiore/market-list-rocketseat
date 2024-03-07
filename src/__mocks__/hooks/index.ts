@@ -1,0 +1,1 @@
+export { useClickInOutMock } from "./useClickInOutMock";
