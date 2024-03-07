@@ -19,11 +19,7 @@ export function DropdownSingle({
 
   const { ref: dropdownMenuRef } = useClickInOut({
     ignoredRefs: [inputRef],
-    onClickInside: () => {
-      console.log("clicked inside");
-    },
     onClickOutside: () => {
-      console.log("clicked outside");
       setIsOpenMenu(false);
     },
   });
