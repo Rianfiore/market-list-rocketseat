@@ -1,6 +1,7 @@
+import { DropdownSingleProps } from "@/components/atoms/Dropdown/models/single/types";
 import { tagModels } from "@/components/atoms/Tag/models";
 
-export const dropdownSingleMock = {
+export const dropdownSingleMock: DropdownSingleProps = {
   label: "Categoria",
   placeholder: "Selecione uma categoria",
   onClick: jest.fn(),

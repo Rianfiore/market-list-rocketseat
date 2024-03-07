@@ -56,7 +56,7 @@ describe("DropdownSingle component", () => {
 
     expect(label).toBeInTheDocument();
 
-    expect(label).toHaveTextContent(dropdownSingleMock.label);
+    expect(label).toHaveTextContent(dropdownSingleMock.label!);
   });
 
   test("should render with the correct placeholder", () => {
@@ -70,7 +70,7 @@ describe("DropdownSingle component", () => {
     const dropdown = getByTestId("dropdown-single");
 
     expect(dropdown).toBeInTheDocument();
-    expect(dropdown).toHaveTextContent(dropdownSingleMock.placeholder);
+    expect(dropdown).toHaveTextContent(dropdownSingleMock.placeholder!);
   });
 
   test("should render when user clicks on the input and the menu opens", () => {
