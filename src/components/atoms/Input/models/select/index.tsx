@@ -60,7 +60,9 @@ export function InputSelect({
           size={16}
           className=" rotate-0 data-[isopenedmenu=true]:rotate-[-180deg] self-end"
         />
-        {children}
+        <span className="absolute translate-x-[-0.9rem] translate-y-6">
+          {children}
+        </span>
       </span>
     </div>
   );
