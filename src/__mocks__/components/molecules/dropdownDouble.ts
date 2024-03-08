@@ -2,5 +2,5 @@ import { DropdownDoubleProps } from "@/components/molecules/Dropdown/models/doub
 
 export const dropdownDoubleMock: DropdownDoubleProps = {
   label: "Quantidade",
-  data: ["Un.", "L", "Kg"],
+  data: [{ value: "Un." }, { value: "L" }, { value: "Kg" }],
 };

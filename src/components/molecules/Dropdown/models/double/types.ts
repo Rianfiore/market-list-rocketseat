@@ -1,5 +1,7 @@
+import { DropdownMenuItemType } from "@/components/atoms/DropdownMenu/types";
+
 export interface DropdownDoubleProps {
   label?: string;
-  data: string[];
-  onOptionChange?: (value: string) => void;
+  data: DropdownMenuItemType[];
+  onOptionChange?: (value: DropdownMenuItemType) => void;
 }

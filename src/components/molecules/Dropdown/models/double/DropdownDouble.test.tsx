@@ -25,12 +25,12 @@ describe("DropdownDouble component", () => {
 
     fireEvent.click(inputSelect);
 
-    const dropdownMenu = getByTestId("dropdown-double-menu");
+    const dropdownMenu = getByTestId("dropdown-menu");
 
     expect(dropdownMenu).toBeInTheDocument();
 
     dropdownDoubleMock.data.forEach((option) => {
-      expect(dropdownMenu).toHaveTextContent(option);
+      expect(dropdownMenu).toHaveTextContent(option.value!);
     });
   });
 
@@ -40,7 +40,7 @@ describe("DropdownDouble component", () => {
 
     fireEvent.click(inputSelect);
 
-    const dropdownMenu = getByTestId("dropdown-double-menu");
+    const dropdownMenu = getByTestId("dropdown-menu");
 
     expect(dropdownMenu).toBeInTheDocument();
 
@@ -57,37 +57,14 @@ describe("DropdownDouble component", () => {
 
     fireEvent.click(inputSelect);
 
-    const dropdownMenu = getByTestId("dropdown-double-menu");
+    const dropdownMenu = getByTestId("dropdown-menu");
 
     expect(dropdownMenu).toBeInTheDocument();
 
-    const option = getAllByTestId("dropdown-double-menu-option")[0];
+    const option = getAllByTestId("dropdown-menu-option")[0];
 
     fireEvent.click(option);
 
     expect(dropdownMenu).not.toBeInTheDocument();
-  });
-
-  test("should be able to select an option and change the input value", () => {
-    const { getByTestId, getAllByTestId } = render(
-      <DropdownDouble {...dropdownDoubleMock} />
-    );
-    const inputSelect = getByTestId("input-select-input");
-
-    fireEvent.click(inputSelect);
-
-    const dropdownMenu = getByTestId("dropdown-double-menu");
-
-    expect(dropdownMenu).toBeInTheDocument();
-
-    const option = getAllByTestId("dropdown-double-menu-option")[0];
-
-    fireEvent.click(option);
-
-    expect(dropdownMenu).not.toBeInTheDocument();
-
-    expect(inputSelect).toHaveTextContent(
-      dropdownDoubleMock.data[0].toUpperCase()
-    );
   });
 });

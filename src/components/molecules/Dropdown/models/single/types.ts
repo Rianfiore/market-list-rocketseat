@@ -1,15 +1,11 @@
+import { DropdownMenuItemType } from "@/components/atoms/DropdownMenu/types";
 import { HTMLAttributes } from "react";
-
-type DropdownDataType = {
-  icon?: JSX.Element;
-  value: string;
-};
 
 export interface DropdownSingleProps
   extends Omit<HTMLAttributes<HTMLElement>, "onChange"> {
-  data: DropdownDataType[];
+  data: DropdownMenuItemType[];
   placeholder?: string;
   label?: string;
   onClick?: () => void;
-  onOptionChange?: (option: DropdownDataType | undefined) => void;
+  onOptionChange?: (option: DropdownMenuItemType) => void;
 }

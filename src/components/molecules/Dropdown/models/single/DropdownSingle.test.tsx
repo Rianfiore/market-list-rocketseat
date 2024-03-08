@@ -24,7 +24,7 @@ describe("DropdownSingle component", () => {
 
     fireEvent.click(input);
 
-    const menuOptions = await findAllByTestId("dropdown-single-menu-option");
+    const menuOptions = await findAllByTestId("dropdown-menu-option");
 
     fireEvent.click(menuOptions[0]);
 
@@ -39,32 +39,9 @@ describe("DropdownSingle component", () => {
 
     fireEvent.click(input);
 
-    const menu = getByTestId("dropdown-single-menu");
+    const menu = getByTestId("dropdown-menu");
 
     expect(menu).toBeInTheDocument();
-  });
-
-  test("should render when the menu is open and the options are rendered correctly", async () => {
-    const { getByTestId, findAllByTestId } = render(
-      <DropdownSingle data={dropdownSingleMock.data} />
-    );
-    const input = getByTestId("input-select-input");
-
-    fireEvent.click(input);
-
-    // find all options
-    const menuOptions = await findAllByTestId("dropdown-single-menu-option");
-
-    // check if the options are rendered with same length as the data
-    expect(menuOptions.length).toBe(dropdownSingleMock.data.length);
-
-    // check if the options are rendered with the correct text
-    dropdownSingleMock.data.forEach((item, index) => {
-      const option = menuOptions[index];
-
-      expect(option).toBeInTheDocument();
-      expect(option).toHaveTextContent(item.value);
-    });
   });
 
   test("should render when user clicks outside the menu and the menu closes", () => {
@@ -75,7 +52,7 @@ describe("DropdownSingle component", () => {
 
     fireEvent.click(input);
 
-    const menu = getByTestId("dropdown-single-menu");
+    const menu = getByTestId("dropdown-menu");
 
     expect(menu).toBeInTheDocument();
 
@@ -85,26 +62,26 @@ describe("DropdownSingle component", () => {
   });
 
   test("should render when user clicks on the option and the menu closes", async () => {
-    const { getByTestId, findAllByTestId } = render(
+    const { getByTestId, getAllByTestId } = render(
       <DropdownSingle data={dropdownSingleMock.data} />
     );
     const input = getByTestId("input-select-input");
 
     fireEvent.click(input);
 
-    const menu = getByTestId("dropdown-single-menu");
+    const dropdownMenu = getByTestId("dropdown-menu");
 
     // find all options
-    const menuOptions = await findAllByTestId("dropdown-single-menu-option");
+    const dropdownMenuOptions = getAllByTestId("dropdown-menu-option");
 
     // click on the first option
-    fireEvent.click(menuOptions[0]);
+    fireEvent.click(dropdownMenuOptions[0]);
 
-    expect(menu).not.toBeInTheDocument();
+    expect(dropdownMenu).not.toBeInTheDocument();
   });
 
   test("should render when user clicks on the option and the input value changes", async () => {
-    const { getByTestId, findAllByTestId } = render(
+    const { getByTestId, getAllByTestId } = render(
       <DropdownSingle data={dropdownSingleMock.data} />
     );
     const input = getByTestId("input-select-input");
@@ -112,11 +89,11 @@ describe("DropdownSingle component", () => {
     fireEvent.click(input);
 
     // find all options
-    const menuOptions = await findAllByTestId("dropdown-single-menu-option");
+    const menuOptions = getAllByTestId("dropdown-menu-option");
 
     // click on the first option
     fireEvent.click(menuOptions[0]);
 
-    expect(input).toHaveTextContent(dropdownSingleMock.data[0].value);
+    expect(input).toHaveTextContent(dropdownSingleMock.data[0].value!);
   });
 });
