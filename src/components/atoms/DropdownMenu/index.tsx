@@ -15,7 +15,7 @@ export function DropdownMenu({
     <div
       {...props}
       data-testid="dropdown-menu"
-      ref={dropdownMenuRef as React.RefObject<HTMLDivElement>}
+      ref={dropdownMenuRef}
       data-width={inputWidth}
       style={{
         width: `${inputWidth}px`,
