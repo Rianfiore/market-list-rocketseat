@@ -1,7 +1,7 @@
 import { Check } from "lucide-react";
 import { CheckboxProps } from "./types";
 
-export function Checkbox({ ...props }: CheckboxProps) {
+export function Checkbox({ checked, ...props }: CheckboxProps) {
   return (
     <div className="w-full flex gap-2">
       <input
@@ -16,6 +16,7 @@ export function Checkbox({ ...props }: CheckboxProps) {
       "
         type="checkbox"
         data-testid="checkbox"
+        checked={checked}
         {...props}
       />
       <Check className="absolute w-[12px] h-[12px] ml-[2px] mt-[2px] pointer-events-none hidden peer-checked:block stroke-white outline-none" />
