@@ -5,7 +5,8 @@ export type DropdownMenuItemType = {
   value?: string;
 };
 
-export interface DropdownMenuProps {
+export interface DropdownMenuProps
+  extends React.HTMLAttributes<HTMLDivElement> {
   dropdownMenuRef?: React.RefObject<HTMLDivElement>;
   inputWidth?: number;
   data: DropdownMenuItemType[];

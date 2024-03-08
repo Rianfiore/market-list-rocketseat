@@ -9,16 +9,18 @@ export function DropdownMenu({
   data,
   selectedValue,
   onOptionChange = () => {},
+  ...props
 }: DropdownMenuProps) {
   return (
     <div
+      {...props}
       data-testid="dropdown-menu"
       ref={dropdownMenuRef as React.RefObject<HTMLDivElement>}
       data-width={inputWidth}
       style={{
         width: `${inputWidth}px`,
       }}
-      className="mt-1 absolute bg-neutral-gray500 border border-neutral-gray300 rounded-md focus:outline-none data-[isopenedmenu=true]:border-brand-purple-light data-[hasdefaultvalue=true]:text-neutral-gray200 appearance-none flex flex-col hover:cursor-pointer z-10"
+      className={`mt-1 absolute bg-neutral-gray500 border border-neutral-gray300 rounded-md focus:outline-none data-[isopenedmenu=true]:border-brand-purple-light data-[hasdefaultvalue=true]:text-neutral-gray200 appearance-none flex flex-col hover:cursor-pointer z-10 ${props.className}`}
     >
       {data.map((item, index) => {
         const lastItem = index === data.length - 1;
@@ -29,7 +31,7 @@ export function DropdownMenu({
             <span
               data-testid="dropdown-menu-option"
               data-isselected={isSelected}
-              className="p-[12px] hover:bg-neutral-gray400 flex justify-between w-full data-[isselected=true]:bg-neutral-gray300"
+              className="p-[12px] hover:bg-neutral-gray400 flex justify-between w-full gap-2 data-[isselected=true]:bg-neutral-gray300"
               onClick={() => {
                 onOptionChange(item);
               }}
