@@ -19,7 +19,7 @@ export function InputText({ label, ...props }: InputTextProps) {
         data-isfocused={isFocused}
         {...props}
         type="text"
-        className="bg-neutral-gray500 border border-neutral-gray300 rounded-md h-[40px] w-full p-3 focus:outline-none data-[isfocused=true]:outline-brand-purple-light placeholder:text-neutral-gray200"
+        className="bg-neutral-gray500 border outline-none border-neutral-gray300 rounded-md h-[40px] w-full p-3 data-[isfocused=true]:border-brand-purple-light placeholder:text-neutral-gray200"
         onFocus={(e) => {
           setIsFocused(true);
 

@@ -1,5 +1,5 @@
-import { DropdownSingleProps } from "@/components/atoms/Dropdown/models/single/types";
 import { tagModels } from "@/components/atoms/Tag/models";
+import { DropdownSingleProps } from "@/components/molecules/Dropdown/models/single/types";
 
 export const dropdownSingleMock: DropdownSingleProps = {
   label: "Categoria",

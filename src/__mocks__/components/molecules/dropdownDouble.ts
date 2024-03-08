@@ -1,4 +1,4 @@
-import { DropdownDoubleProps } from "@/components/atoms/Dropdown/models/double/types";
+import { DropdownDoubleProps } from "@/components/molecules/Dropdown/models/double/types";
 
 export const dropdownDoubleMock: DropdownDoubleProps = {
   label: "Quantidade",
