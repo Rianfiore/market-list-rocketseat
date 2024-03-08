@@ -4,11 +4,15 @@ import { useClickInOut } from ".";
 
 describe("useClickInOut", () => {
   test("should trigger onClickInside callback when clicking inside the ref element", () => {
-    const { result } = renderHook(() => useClickInOut(useClickInOutMock));
+    const { result, rerender } = renderHook(() =>
+      useClickInOut(useClickInOutMock)
+    );
     const { getByTestId } = render(
       <div ref={result.current.ref} data-testid="component"></div>
     );
     const component = getByTestId("component");
+
+    rerender();
 
     fireEvent.mouseDown(component);
 
@@ -19,13 +23,17 @@ describe("useClickInOut", () => {
   });
 
   test("shoud trigger isClickedInside state when clicking inside the ref element", () => {
-    const { result } = renderHook(() => useClickInOut(useClickInOutMock));
+    const { result, rerender } = renderHook(() =>
+      useClickInOut(useClickInOutMock)
+    );
 
     const { getByTestId } = render(
       <div ref={result.current.ref} data-testid="component"></div>
     );
 
     const component = getByTestId("component");
+
+    rerender();
 
     fireEvent.mouseDown(component);
 
@@ -36,9 +44,20 @@ describe("useClickInOut", () => {
   });
 
   test("should trigger onClickOutside callback when clicking outside the ref element", () => {
-    renderHook(() => useClickInOut(useClickInOutMock));
+    const { result, rerender } = renderHook(() =>
+      useClickInOut(useClickInOutMock)
+    );
 
-    fireEvent.mouseDown(document.body);
+    const { getByTestId } = render(
+      <div data-testid="component">
+        <span ref={result.current.ref}></span>
+      </div>
+    );
+    const component = getByTestId("component");
+
+    rerender();
+
+    fireEvent.mouseDown(component);
 
     expect(useClickInOutMock.onClickOutside).toHaveBeenCalled();
     expect(useClickInOutMock.onClickInside).not.toHaveBeenCalled();
@@ -47,9 +66,20 @@ describe("useClickInOut", () => {
   });
 
   test("should trigger isClickedOutside state when clicking outside the ref element", () => {
-    const { result } = renderHook(() => useClickInOut(useClickInOutMock));
+    const { result, rerender } = renderHook(() =>
+      useClickInOut(useClickInOutMock)
+    );
 
-    fireEvent.mouseDown(document);
+    const { getByTestId } = render(
+      <div data-testid="component">
+        <span ref={result.current.ref}></span>
+      </div>
+    );
+    const component = getByTestId("component");
+
+    rerender();
+
+    fireEvent.mouseDown(component);
 
     expect(result.current.isClickedOutside).toBeTruthy();
     expect(result.current.isClickedInside).toBeFalsy();

@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { UseClickInOutProps } from "./types";
 
-export const useClickInOut = ({
-  onClickInside,
-  onClickOutside,
+export function useClickInOut({
+  onClickInside = () => {},
+  onClickOutside = () => {},
   ignoredRefs = [],
   additionalRefs = [],
-}: UseClickInOutProps = {}) => {
+}: UseClickInOutProps) {
   const [isClickedInside, setIsClickedInside] = useState(false);
   const [isClickedOutside, setIsClickedOutside] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -17,9 +17,7 @@ export const useClickInOut = ({
         setIsClickedInside(true);
         setIsClickedOutside(false);
 
-        if (onClickInside) {
-          onClickInside();
-        }
+        onClickInside();
       } else {
         for (const ignoredRef of ignoredRefs) {
           if (
@@ -44,18 +42,18 @@ export const useClickInOut = ({
         setIsClickedInside(false);
         setIsClickedOutside(true);
 
-        if (onClickOutside) {
-          onClickOutside();
-        }
+        onClickOutside();
       }
     };
 
-    document.addEventListener("mousedown", handleClick);
+    if (ref.current) {
+      document.addEventListener("mousedown", handleClick);
 
-    return () => {
-      document.removeEventListener("mousedown", handleClick);
-    };
-  }, [onClickInside, onClickOutside, ignoredRefs, additionalRefs]);
+      return () => {
+        document.removeEventListener("mousedown", handleClick);
+      };
+    }
+  }, [onClickInside, onClickOutside, ignoredRefs, additionalRefs, ref]);
 
   return { isClickedInside, isClickedOutside, ref };
-};
+}
