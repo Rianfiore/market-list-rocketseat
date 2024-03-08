@@ -17,6 +17,7 @@ export function Checkbox({ checked, ...props }: CheckboxProps) {
         type="checkbox"
         data-testid="checkbox"
         checked={checked}
+        readOnly
         {...props}
       />
       <Check className="absolute w-[12px] h-[12px] ml-[2px] mt-[2px] pointer-events-none hidden peer-checked:block stroke-white outline-none" />
