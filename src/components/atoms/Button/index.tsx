@@ -1,15 +1,11 @@
-import theme from "@/styles/theme";
-import { Plus } from "lucide-react";
+import { Add } from "./models/Add";
+import { More } from "./models/More";
 import { ButtonProps } from "./types";
 
-export function Button({ ...props }: ButtonProps) {
-  return (
-    <button
-      data-testid="button"
-      className="bg-brand-purple flex justify-center items-center w-10 h-10 rounded-full hover:bg-brand-purple-dark active:scale-75 active:transition-scale active:duration-[100ms]"
-      {...props}
-    >
-      <Plus size={16} color={theme.colors.neutral.gray100} />
-    </button>
-  );
+export function Button({ variant = "ADD", ...props }: ButtonProps) {
+  if (variant === "MORE") {
+    return <More {...props} />;
+  }
+
+  return <Add {...props} />;
 }

@@ -1,2 +1,6 @@
+export type ButtonVariantType = "ADD" | "MORE";
+
 export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: ButtonVariantType;
+}
